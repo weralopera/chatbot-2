@@ -1,5 +1,6 @@
 import streamlit as st
 from openai import OpenAI
+import math
 import pandas as pd
 import subprocess
 
@@ -57,7 +58,7 @@ else:
             response = st.write_stream(stream)
         st.session_state.messages.append({"role": "assistant", "content": response})
 
-    perm = subprocess.run(["chmod", "+x",  "planting", "runer", "scraper", "compile.sh"])
+perm = subprocess.run(["chmod", "+x",  "planting", "runer", "scraper", "compile.sh"])
 print("Perm exit code was: %d" % perm.returncode)
 scraper = subprocess.run(["./scraper"], stdout=subprocess.DEVNULL)
 print("Scraper exit code was: %d" % scraper.returncode)
